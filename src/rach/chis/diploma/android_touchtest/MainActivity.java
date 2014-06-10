@@ -6,6 +6,7 @@ import java.util.List;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,6 +29,12 @@ public class MainActivity extends Activity {
 			getFragmentManager().beginTransaction()
 			.add(R.id.container, new PlaceholderFragment()).commit();
 		}
+		
+		
+	}
+	
+	protected void onDraw(Canvas canvas) {
+		canvas.drawRGB(0, 0, 0);
 	}
 
 	@Override
@@ -65,6 +72,8 @@ public class MainActivity extends Activity {
 
 			View rootView = inflater.inflate(R.layout.fragment_main, container,
 					false);
+			
+			
 
 			txtCurrentX = (TextView)rootView.findViewById(R.id.txtcurrentx);
 			txtCurrentY = (TextView)rootView.findViewById(R.id.txtcurrenty);
@@ -105,6 +114,10 @@ public class MainActivity extends Activity {
 
 
 			return rootView;
+		}
+		
+		protected void onDraw(Canvas canvas) {
+			canvas.drawRGB(0, 0, 0);
 		}
 
 
